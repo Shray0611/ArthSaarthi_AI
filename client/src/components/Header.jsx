@@ -72,7 +72,6 @@ const Header = ({ language, setLanguage, t }) => {
                         { label: language === 'hi' ? 'सहेजे गए' : 'Saved', to: '/saved-schemes', signedIn: true },
                         { label: language === 'hi' ? 'मदद' : 'Help', to: '/help' },
                     ].map((item) => {
-                        if (item.signedIn && !isSignedIn) return null;
                         return (
                             <Link
                                 key={item.to}
@@ -181,7 +180,6 @@ const Header = ({ language, setLanguage, t }) => {
                             { label: language === 'hi' ? 'सहेजे गए' : 'Saved', to: '/saved-schemes', signedIn: true },
                             { label: language === 'hi' ? 'मदद' : 'Help', to: '/help' },
                         ].map((item) => {
-                            if (item.signedIn && !isSignedIn) return null;
                             return (
                                 <Link
                                     key={item.to}
