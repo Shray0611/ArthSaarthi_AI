@@ -271,6 +271,7 @@ select.input-box {
   
   /* Header Mobile */
   .hide-on-mobile { display: none !important; }
+  .show-on-mobile { display: flex !important; }
   .header-pill-mobile { 
     width: calc(100% - 24px) !important; 
     padding: 8px 14px !important; 
@@ -313,3 +314,4 @@ select.input-box {
 /* ── Skeleton ──────────────────────────────────────────────────── */
 .skeleton { background: #f0f0f0; border-radius: 4px; }
 .skeleton-dark { background: #c8c8c8; border-radius: 4px; }
+.show-on-mobile { display: none !important; }

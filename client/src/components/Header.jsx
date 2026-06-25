@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
-import { ShieldCheck, X, Loader2 } from 'lucide-react';
+import { ShieldCheck, X, Loader2, Menu } from 'lucide-react';
 import { SignedIn, SignedOut, UserButton, useAuth } from "@clerk/clerk-react";
 
 const Header = ({ language, setLanguage, t }) => {
     const navigate = useNavigate();
     const location = useLocation();
     const [scrolled, setScrolled] = useState(false);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const { getToken, isSignedIn } = useAuth();
 
     const isActive = (path) => location.pathname === path;
@@ -142,8 +143,67 @@ const Header = ({ language, setLanguage, t }) => {
                     <SignedIn>
                         <UserButton afterSignOutUrl="/" />
                     </SignedIn>
+
+                    {/* Mobile Menu Toggle */}
+                    <button 
+                        className="show-on-mobile"
+                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        style={{ background: 'none', border: 'none', padding: 4, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                    >
+                        {mobileMenuOpen ? <X size={24} color="#111111" /> : <Menu size={24} color="#111111" />}
+                    </button>
                 </div>
             </div>
+
+            {/* Mobile Dropdown Menu */}
+            <AnimatePresence>
+                {mobileMenuOpen && (
+                    <div style={{
+                        position: 'fixed',
+                        top: 80,
+                        left: '50%',
+                        transform: 'translateX(-50%)',
+                        width: 'calc(100% - 40px)',
+                        maxWidth: 400,
+                        background: '#ffffff',
+                        borderRadius: 20,
+                        boxShadow: '0 10px 40px rgba(0,0,0,0.15)',
+                        padding: 16,
+                        zIndex: 99,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: 8,
+                        border: '1px solid rgba(0,0,0,0.06)'
+                    }}>
+                        {[
+                            { label: language === 'hi' ? 'होम' : 'Home', to: '/' },
+                            { label: language === 'hi' ? 'सहेजे गए' : 'Saved', to: '/saved-schemes', signedIn: true },
+                            { label: language === 'hi' ? 'मदद' : 'Help', to: '/help' },
+                        ].map((item) => {
+                            if (item.signedIn && !isSignedIn) return null;
+                            return (
+                                <Link
+                                    key={item.to}
+                                    to={item.to}
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    style={{
+                                        fontFamily: "'Inter', system-ui, sans-serif",
+                                        fontSize: 16,
+                                        fontWeight: 500,
+                                        color: isActive(item.to) ? '#111111' : '#636363',
+                                        textDecoration: 'none',
+                                        padding: '12px 16px',
+                                        borderRadius: 12,
+                                        background: isActive(item.to) ? '#f7f7f7' : 'transparent',
+                                    }}
+                                >
+                                    {item.label}
+                                </Link>
+                            );
+                        })}
+                    </div>
+                )}
+            </AnimatePresence>
         </header>
     );
 };
