@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { ShieldCheck, X, Loader2, Menu } from 'lucide-react';
 import { SignedIn, SignedOut, UserButton, useAuth } from "@clerk/clerk-react";
+import { AnimatePresence } from 'framer-motion';
 
 const Header = ({ language, setLanguage, t }) => {
     const navigate = useNavigate();
