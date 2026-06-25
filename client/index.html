@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scheme.AI — Find Government Schemes You're Eligible For</title>
+  <meta name="description" content="AI-powered government scheme discovery for Indian citizens. Find grants, subsidies, and government schemes you're eligible for in seconds." />
+  <meta name="theme-color" content="#f7f7f7" />
+  <link rel="apple-touch-icon" href="/logo.svg" />
+
+  <!-- Preconnect for fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://api.fontshare.com" />
+
+  <!-- Inter from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Satoshi from fontshare (300 is too thin - using 400,500,600) -->
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Critical inline styles — loaded synchronously before any external CSS */
+    :root {
+      --color-tangerine-tag: #f69251;
+      --color-midnight-ink: #181825;
+      --color-graphite: #484758;
+      --color-carbon: #111111;
+      --color-stone: #636363;
+      --color-pebble: #949494;
+      --color-ash: #8b8b8b;
+      --color-fog: #f7f7f7;
+      --color-snow: #ffffff;
+      --color-dusty-rose: #c97b84;
+      --font-display: 'Satoshi', 'Inter', system-ui, sans-serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+      --radius-cards: 20px;
+      --radius-buttons: 28px;
+      --radius-badges: 100px;
+      --radius-overlays: 32px;
+    }
+    html { background: #f7f7f7; }
+    body {
+      margin: 0; padding: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #f7f7f7;
+      color: #111111;
+    }
+    /* Animation keyframes */
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>
