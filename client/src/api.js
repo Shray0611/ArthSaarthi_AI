@@ -3,7 +3,7 @@ let apiUrl = import.meta.env.VITE_API_URL;
 if (!apiUrl) {
     if (import.meta.env.MODE === 'production') {
         // Direct connection to Render in production to avoid Vercel proxy issues
-        apiUrl = 'https://ai-government-scheme-advisor.onrender.com/api';
+        apiUrl = 'https://arthsaarthi-ai.onrender.com/api';
     } else {
         // Use local proxy in development
         apiUrl = '/api';
